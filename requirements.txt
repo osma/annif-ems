@@ -1,0 +1,5 @@
+sickle
+lxml
+requests
+rdflib
+pymarc
