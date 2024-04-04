@@ -8,7 +8,7 @@ Install the dependencies in a Python virtual environment using `pip install -r r
 
 # Annif installation & configuration file
 
-You will need to install Annif using any of the supported installation methods. To install it locally in a Python virtual environment (with the required YAKE and Omikuji features), use the command
+You will need to install Annif using any of the [supported installation methods](https://github.com/NatLibFi/Annif-tutorial/blob/master/exercises/01_install_annif.md). To install it locally in a Python virtual environment (with the required YAKE and Omikuji features), use the command
 
     pip install annif[yake,omikuji]
 
@@ -36,7 +36,7 @@ The resulting file [ems_marc_tais.ttl](ems_marc_tais.ttl) can be loaded into Ann
 
 # Training corpus based on ISE article metadata
 
-The [Estonian article database ISE](https://data.elnet.ee/ise/) can be used as a source of training data. It is divided into many subsets and each subset can be downloaded separately via OAI-PMH.
+The [Estonian article database ISE](https://data.elnet.ee/ise/) can be used as a source of training data. It is divided into many subsets ([ListSets via OAI-PMH](https://artiklid.elnet.ee/iii/oai/OAIRepository?verb=ListSets)) and each subset can be downloaded separately via OAI-PMH.
 
 The included script [collect-ise.py](collect-ise.py) can be used for the data collection. It can be run like this (in this case on the `itehn` subset):
 
@@ -46,7 +46,7 @@ The resulting file will have one OAI-DC XML record per line. It can be converted
 
     python oai_dc-to-corpus.py <ise.itehn.xml >ise.itehn.tsv
 
-Using these scripts, the ISE subsets `aa`, `ihari`, `ise`, `itehn`, `space1` and `yy` (quite a random selection!) were downloaded on 2024-04-02 and converted into a TSV corpus. The resulting corpus file [ise-corpus.tsv.gz] contains around 400k records/lines. It can be used to train the Omikuji Bonsai project like this:
+Using these scripts, the ISE subsets `aa`, `ihari`, `ise`, `itehn`, `space1` and `yy` (quite a random selection!) were downloaded on 2024-04-02 and converted into a TSV corpus. The resulting corpus file [ise-corpus.tsv.gz](ise-corpus.tsv.gz) contains around 400k records/lines. It can be used to train the Omikuji Bonsai project like this:
 
     annif train ems-bonsai-et ise-corpus.tsv.gz
 
@@ -57,6 +57,3 @@ After training, you can test Annif by starting it with the command
     annif run
 
 and opening the URL http://localhost:5000 in a web browser.
-
-
-
